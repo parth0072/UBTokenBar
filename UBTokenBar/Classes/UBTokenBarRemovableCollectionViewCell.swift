@@ -36,9 +36,11 @@ open class UBTokenBarRemovableCollectionViewCell: UBTokenBarCollectionViewCell {
         super.init(frame: frame)
 
         self.translatesAutoresizingMaskIntoConstraints = false
-        self.contentView.backgroundColor = UIColor(colorLiteralRed: 88.0/255.0, green: 121.0/255.0, blue: 218.0/255.0, alpha: 1)
 
-        self.titleLabel.textColor = .white
+        //Change to Biomark color
+        self.contentView.backgroundColor = UIColor.init(red: 246.0/255.0, green: 248.0/255.0, blue: 249.0/255.0, alpha: 1)
+       // self.contentView.backgroundColor = UIColor.lightGray
+        self.titleLabel.textColor = UIColor.black
         self.titleLabel.translatesAutoresizingMaskIntoConstraints = false
         self.contentView.addSubview(self.titleLabel)
 
@@ -47,11 +49,15 @@ open class UBTokenBarRemovableCollectionViewCell: UBTokenBarCollectionViewCell {
         }
 
         self.removeTokenButton.setTitle("x", for: .normal)
+        self.removeTokenButton.setTitleColor(UIColor.darkGray, for: .normal)
         self.removeTokenButton.addTarget(self, action: #selector(UBTokenBarRemovableCollectionViewCell.pressedRemoveButton(_:)), for: .touchUpInside)
         self.removeTokenButton.translatesAutoresizingMaskIntoConstraints = false
         self.contentView.addSubview(removeTokenButton)
 
-        self.contentView.layer.cornerRadius = 2.0
+        //Set cornerRadius
+        self.contentView.layer.borderColor = UIColor.darkGray.cgColor
+        self.contentView.layer.borderWidth = 0.5
+        self.contentView.layer.cornerRadius = 10.0
         self.contentView.layer.masksToBounds = true
     }
 

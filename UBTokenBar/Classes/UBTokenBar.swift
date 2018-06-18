@@ -180,6 +180,8 @@ open class UBTokenBar: UIView, UICollectionViewDataSource, UICollectionViewDeleg
     public func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
 
     }
+    
+    
 
     /// Token managment methods
 
