@@ -31,7 +31,7 @@ let searchIconDecorationCellType = "UBTokenBarCollectionViewFlowLayout.searchIco
 open class UBTokenBarCollectionViewFlowLayout: UICollectionViewFlowLayout {
     fileprivate var contentSize = CGSize.zero
 
-    override init() {
+    public override init() {
         super.init()
         self.minimumInteritemSpacing = 5
         self.minimumLineSpacing = 5
@@ -107,7 +107,8 @@ open class UBTokenBarCollectionViewFlowLayout: UICollectionViewFlowLayout {
     override open func layoutAttributesForDecorationView(ofKind elementKind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
         if elementKind == searchIconDecorationCellType {
             let decorationLayoutAttributes = UICollectionViewLayoutAttributes(forDecorationViewOfKind: elementKind, with: indexPath)
-            decorationLayoutAttributes.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+           // decorationLayoutAttributes.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+            decorationLayoutAttributes.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
             return decorationLayoutAttributes
         }
         return nil

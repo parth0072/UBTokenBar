@@ -25,7 +25,7 @@
 
 import UIKit
 
-class UBTokenBarTextFieldCollectionViewCell: UICollectionViewCell, UBTokenBarTextFieldDelegate {
+open class UBTokenBarTextFieldCollectionViewCell: UICollectionViewCell, UBTokenBarTextFieldDelegate {
     let textField = UBTokenBarTextField(frame: CGRect.zero)
     public var computedWidth: CGFloat = 0
     public var minimumWidth: CGFloat = 50
@@ -44,13 +44,13 @@ class UBTokenBarTextFieldCollectionViewCell: UICollectionViewCell, UBTokenBarTex
         }
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
 
     // View managment code
 
-    override func updateConstraints() {
+    override open func updateConstraints() {
         let leadingConstraint = NSLayoutConstraint(item: self.textField, attribute: .leading, relatedBy: .equal, toItem: self.contentView, attribute: .leading, multiplier: 1.0, constant: 0)
         let trailingConstraint = NSLayoutConstraint(item: self.textField, attribute: .trailing, relatedBy: .equal, toItem: self.contentView, attribute: .trailing, multiplier: 1.0, constant: 0)
         let topConstraint = NSLayoutConstraint(item: self.textField, attribute: .top, relatedBy: .equal, toItem: self.contentView, attribute: .top, multiplier: 1.0, constant: 0)
@@ -60,7 +60,7 @@ class UBTokenBarTextFieldCollectionViewCell: UICollectionViewCell, UBTokenBarTex
         super.updateConstraints()
     }
 
-    override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
+    override open func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
         guard let layoutAttributesCopy = layoutAttributes.copy() as? UICollectionViewLayoutAttributes else {
             return layoutAttributes
         }
@@ -75,7 +75,7 @@ class UBTokenBarTextFieldCollectionViewCell: UICollectionViewCell, UBTokenBarTex
         return layoutAttributesCopy
     }
 
-    override func prepareForReuse() {
+    override open func prepareForReuse() {
         self.computedWidth = 0
         self.textField.text = nil
         super.prepareForReuse()

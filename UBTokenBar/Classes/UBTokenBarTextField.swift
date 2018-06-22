@@ -35,6 +35,8 @@ class UBTokenBarTextField: UITextField, UITextFieldDelegate {
         self.leftView?.frame.size.width = 5
         self.rightView = nil
         self.delegate = self
+        self.textColor = UIColor(red: 39.0/255.0, green: 56.0/255.0, blue: 89.0/255.0, alpha: 1.0)
+        self.font = UIFont.systemFont(ofSize: 12)
         self.addTarget(self, action: #selector(textFieldDidChange(_:)), for: UIControlEvents.editingChanged)
     }
 

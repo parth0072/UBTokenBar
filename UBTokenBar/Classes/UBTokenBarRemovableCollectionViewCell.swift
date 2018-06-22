@@ -38,9 +38,10 @@ open class UBTokenBarRemovableCollectionViewCell: UBTokenBarCollectionViewCell {
         self.translatesAutoresizingMaskIntoConstraints = false
 
         //Change to Biomark color
-        self.contentView.backgroundColor = UIColor.init(red: 246.0/255.0, green: 248.0/255.0, blue: 249.0/255.0, alpha: 1)
-       // self.contentView.backgroundColor = UIColor.lightGray
-        self.titleLabel.textColor = UIColor.black
+        self.contentView.backgroundColor = UIColor(red: 246.0/255.0, green: 248.0/255.0, blue: 249.0/255.0, alpha: 1)
+
+        self.titleLabel.textColor = UIColor(red: 39.0/255.0, green: 56.0/255.0, blue: 89.0/255.0, alpha: 1.0)
+        self.titleLabel.font = UIFont.systemFont(ofSize: 12)
         self.titleLabel.translatesAutoresizingMaskIntoConstraints = false
         self.contentView.addSubview(self.titleLabel)
 
@@ -49,15 +50,17 @@ open class UBTokenBarRemovableCollectionViewCell: UBTokenBarCollectionViewCell {
         }
 
         self.removeTokenButton.setTitle("x", for: .normal)
-        self.removeTokenButton.setTitleColor(UIColor.darkGray, for: .normal)
+        self.removeTokenButton.titleLabel?.textAlignment = .center
+        self.removeTokenButton.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+        self.removeTokenButton.setTitleColor(UIColor(red: 132.0/255.0, green: 147.0/255.0, blue: 174.0/255.0, alpha: 1.0), for: .normal)
         self.removeTokenButton.addTarget(self, action: #selector(UBTokenBarRemovableCollectionViewCell.pressedRemoveButton(_:)), for: .touchUpInside)
         self.removeTokenButton.translatesAutoresizingMaskIntoConstraints = false
         self.contentView.addSubview(removeTokenButton)
 
         //Set cornerRadius
-        self.contentView.layer.borderColor = UIColor.darkGray.cgColor
-        self.contentView.layer.borderWidth = 0.5
-        self.contentView.layer.cornerRadius = 10.0
+        self.contentView.layer.borderColor = UIColor(red: 224.0/255.0, green: 230.0/255.0, blue: 232.0/255.0, alpha: 1).cgColor
+        self.contentView.layer.borderWidth = 1.0
+        self.contentView.layer.cornerRadius = 15.5
         self.contentView.layer.masksToBounds = true
     }
 
@@ -81,14 +84,14 @@ open class UBTokenBarRemovableCollectionViewCell: UBTokenBarCollectionViewCell {
 
     // Remove button tap callback
 
-    func pressedRemoveButton(_ sender: UIButton!) {
+    @objc func pressedRemoveButton(_ sender: UIButton!) {
         self.delegate?.tokenRemoveButtonTapped(token: self.token, cell: self)
     }
 
     // View managment code
 
     open override func updateConstraints() {
-        let titleLabelLeadingConstraint = NSLayoutConstraint(item: self.titleLabel, attribute: .leading, relatedBy: .equal, toItem: self.contentView, attribute: .leading, multiplier: 1, constant: 8)
+        let titleLabelLeadingConstraint = NSLayoutConstraint(item: self.titleLabel, attribute: .leading, relatedBy: .equal, toItem: self.contentView, attribute: .leading, multiplier: 1, constant: 10)
         let titleLabelTrailingConstraint = NSLayoutConstraint(item: self.titleLabel, attribute: .trailing, relatedBy: .equal, toItem: self.removeTokenButton, attribute: .leading, multiplier: 1, constant: 0)
         let titleLabelTopConstraint = NSLayoutConstraint(item: self.titleLabel, attribute: .top, relatedBy: .equal, toItem: self.contentView, attribute: .top, multiplier: 1, constant: 0)
         let titleLabelBottomConstraint = NSLayoutConstraint(item: self.titleLabel, attribute: .bottom, relatedBy: .equal, toItem: self.contentView, attribute: .bottom, multiplier: 1, constant: 0)
@@ -96,7 +99,7 @@ open class UBTokenBarRemovableCollectionViewCell: UBTokenBarCollectionViewCell {
 
         self.contentView.addConstraints([titleLabelLeadingConstraint, titleLabelTrailingConstraint, titleLabelTopConstraint, titleLabelBottomConstraint, titleLabelCenterYConstraint])
 
-        let removeTokenButtonWidthConstraint = NSLayoutConstraint(item: self.removeTokenButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 16)
+        let removeTokenButtonWidthConstraint = NSLayoutConstraint(item: self.removeTokenButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 25)
         let removeTokenButtonTrailingConstraint = NSLayoutConstraint(item: self.removeTokenButton, attribute: .trailing, relatedBy: .equal, toItem: self.contentView, attribute: .trailing, multiplier: 1, constant: 0)
         let removeTokenButtonCenterYConstraint = NSLayoutConstraint(item: self.removeTokenButton, attribute: .centerY, relatedBy: .equal, toItem: self.contentView, attribute: .centerY, multiplier: 1, constant: 0)
         let removeTokenButtonTopConstraint = NSLayoutConstraint(item: self.removeTokenButton, attribute: .top, relatedBy: .equal, toItem: self.contentView, attribute: .top, multiplier: 1, constant: 0)
