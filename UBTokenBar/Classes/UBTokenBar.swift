@@ -59,7 +59,7 @@ open class UBTokenBar: UIView, UICollectionViewDataSource, UICollectionViewDeleg
 
     private(set) public var tokens: [UBToken] = []
 
-    private weak var tokenBarTextField: UITextField?
+    public weak var tokenBarTextField: UITextField?
 
     public init(collectionViewLayout: UICollectionViewLayout = UBTokenBarCollectionViewFlowLayout(), collectionViewCellReuseClass: AnyClass = UBTokenBarRemovableCollectionViewCell.self, collectionViewTextInputCellReuseClass: AnyClass = UBTokenBarTextFieldCollectionViewCell.self, frame: CGRect = CGRect.zero) {
         super.init(frame: frame)
